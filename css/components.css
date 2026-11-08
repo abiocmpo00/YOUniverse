@@ -1,0 +1,657 @@
+/* --- Global Elements --- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--color-white);
+}
+
+a {
+  color: var(--color-lavender);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+/* Ensure All Text Uses Theme Colors */
+h1, h2, h3, h4, p, span, li {
+  color: inherit;
+}
+
+/* --- Navigation Header --- */
+.site-header {
+  background-color: rgba(26, 18, 48, 0.85); /* Frosty purple */
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-white);
+  letter-spacing: -1px;
+}
+
+.highlight-you {
+  color: var(--color-pink);
+  text-shadow: 0 0 15px rgba(244, 125, 198, 0.5);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: var(--color-subtle-white);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--color-white);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.3);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gradient-sunset);
+  color: var(--color-purple);
+  box-shadow: 0 6px 20px rgba(255, 149, 102, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 149, 102, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid rgba(167, 139, 250, 0.5);
+}
+
+.btn-secondary:hover {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+  transform: translateY(-2px);
+}
+
+.btn-nav {
+  background-color: var(--color-lavender);
+  color: var(--color-purple) !important;
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-nav:hover {
+  background-color: var(--color-pink) !important;
+}
+
+/* --- Hero Section (Centered First Section) --- */
+.hero-section {
+  padding: 10rem 0 8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Abstract Shape Background Layer */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 140%;
+  height: 120%;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(98, 185, 244, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(244, 125, 198, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(33, 24, 63, 1) 0%, transparent 80%);
+  z-index: -1;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.interactive-you {
+  color: var(--color-pink);
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 15px rgba(244, 125, 198, 0.3);
+}
+
+.interactive-you:hover {
+  transform: scale(1.1) rotate(2deg);
+  color: var(--color-orange);
+  text-shadow: 0 0 25px rgba(255, 149, 102, 0.7);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--color-subtle-white);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* --- Interests Section (4-Column Layout) --- */
+/* --- Interests Section (2x2 Grid Layout) --- */
+.interests-section {
+  padding: 6rem 0;
+  max-width: 900px; /* Reduced container max-width to center and constrain 2 columns nicely */
+  margin: 0 auto;
+}
+
+.interests-section h2 {
+  text-align: center;
+  font-size: 2.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for a 2x2 layout */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.interest-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--color-lavender);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.5rem;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Specific Card Accent Borders */
+.interest-card-1 { border-left-color: var(--color-pink); }
+.interest-card-2 { border-left-color: var(--color-blue); }
+.interest-card-3 { border-left-color: var(--color-orange); }
+.interest-card-4 { border-left-color: var(--color-lavender); }
+
+.interest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.interest-card h3 {
+  font-size: 1.35rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.interest-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Cards Support Dynamic Themes */
+.project-card,
+.certificate-card,
+.skill-category-card,
+.repo-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- About & Timeline Styles --- */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.about-intro {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.about-photos-cluster {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.about-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  border: 2px solid var(--color-lavender);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-smooth);
+  background: var(--card-bg);
+}
+
+.about-photo:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.photo-secondary {
+  transform: translateY(30px);
+}
+
+/* --- Timeline Section --- */
+.journey-section {
+  padding: 5rem 0;
+}
+
+.journey-section h2 {
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--color-lavender);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.39rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-pink);
+  box-shadow: 0 0 10px var(--color-pink);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-pink);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 2rem;
+  transition: var(--transition-smooth);
+}
+
+.timeline-content:hover {
+  transform: translateX(5px);
+  border-color: var(--color-lavender);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* --- Exploring & Projects Sections --- */
+.works-section, .exploring-section {
+  padding: 5rem 0;
+}
+
+.exploring-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.exploring-card p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Light/Dark Mode Toggle Button --- */
+.theme-toggle-btn {
+  background: var(--toggle-bg, var(--card-bg));
+  border: 1px solid var(--card-border);
+  color: var(--text-main, var(--color-white));
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-left: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: rgba(167, 139, 250, 0.25);
+  border-color: var(--color-pink);
+}
+
+/* Dark Theme (Default) */
+:root {
+  --card-bg: rgba(255, 255, 255, 0.05);       /* Subtle light fill on dark background */
+  --card-border: rgba(255, 255, 255, 0.12);   /* Soft light border */
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+}
+
+/* Light Theme (Toggled) */
+body.light-theme {
+  --card-bg: rgba(0, 0, 0, 0.04);             /* Subtle dark fill on light background */
+  --card-border: rgba(0, 0, 0, 0.08);         /* Soft dark border */
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --text-primary: #1e1b4b;                    /* Dark text */
+  --text-secondary: #4c1d95;                  /* Secondary text */
+}
+
+.transparent-card {
+  /* Semi-transparent background using variable */
+  background: var(--card-bg);
+  
+  /* Frosted glass blur effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  /* Border & Rounded corners */
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  
+  /* Spacing */
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  
+  /* Soft shadow for depth */
+  box-shadow: 0 8px 32px 0 var(--card-shadow);
+  
+  /* Smooth color transition when toggling modes */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transparent-card h1, 
+.transparent-card h2 {
+  color: var(--text-primary);
+}
+
+.transparent-card p {
+  color: var(--text-secondary);
+}
+
+/* --- Centered Footer --- */
+.site-footer {
+  border-top: 1px solid var(--card-border);
+  padding: 3rem 0;
+  margin-top: 6rem;
+  background-color: var(--header-bg);
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-content p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  color: var(--color-lavender);
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.social-links a:hover {
+  color: var(--color-pink);
+  transform: scale(1.1);
+}
+
+/* --- Media Queries --- */
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  .interests-grid {
+    grid-template-columns: 1fr; /* Single column layout for mobile/smaller screens */
+  }
+
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-secondary {
+    transform: translateY(0);
+  }
+}
+
+/* Logo Styling */
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-main {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.highlight-you {
+  color: var(--color-pink);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.highlight-you:hover {
+  transform: scale(1.08);
+  color: #ff60a8;
+}
+
+/* Base styling for interactive profile buttons */
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+/* --- LIGHT MODE STYLES (Default / Bright theme) --- */
+.profile-btn.linkedin {
+    background-color: #0a66c2;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(10, 102, 194, 0.2);
+}
+
+.profile-btn.jobstreet {
+    background-color: #e6007e;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(230, 0, 126, 0.2);
+}
+
+.profile-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* --- DARK MODE GLOW STYLES --- */
+body.dark-mode .profile-btn.linkedin {
+    background: rgba(10, 102, 194, 0.15);
+    color: #58a6ff !important;
+    border-color: rgba(10, 102, 194, 0.4);
+    box-shadow: 0 0 12px rgba(10, 102, 194, 0.25);
+}
+
+body.dark-mode .profile-btn.linkedin:hover {
+    background: #0a66c2;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.75), 0 0 35px rgba(10, 102, 194, 0.4);
+}
+
+body.dark-mode .profile-btn.jobstreet {
+    background: rgba(230, 0, 126, 0.15);
+    color: #ff66b2 !important;
+    border-color: rgba(230, 0, 126, 0.4);
+    box-shadow: 0 0 12px rgba(230, 0, 126, 0.25);
+}
+
+body.dark-mode .profile-btn.jobstreet:hover {
+    background: #e6007e;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(230, 0, 126, 0.75), 0 0 35px rgba(230, 0, 126, 0.4);
+}
+
+/* Example using a class-based light mode toggle */
+body.light-mode p,
+body.light-mode span,
+body.light-mode li {
+  color: #0B1F3A; /* Using your Midnight Blue brand color for high contrast */
+}
+
+/* Or if you are using data attributes */
+[data-theme="light"] p,
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+  color: #0B1F3A;
+}
+
+/* Light mode main title & card titles */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode .project-title {
+  color: #1f1135 !important; /* Dark purple/black for high contrast */
+}
+
+/* Light mode inner project cards styling */
+body.light-mode .project-card,
+body.light-mode .works-card {
+  background: rgba(255, 255, 255, 0.65) !important; /* Light translucent card */
+  border: 1px solid rgba(124, 77, 255, 0.15) !important; /* Subtle purple border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Subtitle and tech stack tag styling */
+body.light-mode .tech-stack {
+  color: #7c4dff !important; /* Accent purple for tags */
+}
+
+body.light-mode .project-description,
+body.light-mode p {
+  color: #4a4a68 !important; /* Dark slate text */
+}
+
+/* Light Mode Navbar Styling */
+body.light-mode navbar, 
+body.light-mode header, 
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.8) !important; /* Light transparent background */
+  backdrop-filter: blur(10px);                    /* Soft blur effect */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);   /* Optional subtle divider */
+}
+
+/* Navbar text & link colors in light mode */
+body.light-mode .navbar a,
+body.light-mode nav a,
+body.light-mode .logo {
+  color: #2b1b4d !important; /* Dark text for high contrast */
+}
+
+/* Active link in light mode */
+body.light-mode .navbar a.active,
+body.light-mode nav a.active {
+  color: #7c4dff !important;
+}

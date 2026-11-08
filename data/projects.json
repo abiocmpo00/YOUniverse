@@ -1,0 +1,26 @@
+[
+  {
+    "id": "boutique-hub",
+    "title": "BoutiqueHub",
+    "category": "Web Development",
+    "description": "An e-commerce platform concept tailored for boutique local creators.",
+    "status": "In Progress",
+    "link": "#"
+  },
+  {
+    "id": "donote",
+    "title": "DoNote",
+    "category": "AI & Automation",
+    "description": "A productivity experiment blending quick-capture note-taking with AI summarization.",
+    "status": "Live Demo",
+    "link": "#"
+  },
+  {
+    "id": "personal-portfolio",
+    "title": "River YOUniverse",
+    "category": "Creative Work",
+    "description": "A vibrant personal brand portfolio built like a modern creative studio.",
+    "status": "Active",
+    "link": "index.html"
+  }
+]

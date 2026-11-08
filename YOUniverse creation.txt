@@ -1,0 +1,20 @@
+river-youniverse/
+├── index.html
+├── about.html
+├── work-together.html
+├── works.html
+├── css/
+│   ├── variables.css
+│   ├── global.css
+│   ├── components.css
+│   └── animations.css
+├── js/
+│   ├── main.js
+│   └── animations.js
+├── data/
+│   ├── projects.json
+│   ├── certificates.json
+│   └── skills.json
+└── assets/
+    ├── images/
+    └── icons/

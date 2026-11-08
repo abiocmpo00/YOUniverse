@@ -1,0 +1,583 @@
+/* css/global.css */
+
+/* 1. Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Root Element */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* 3. Global Body */
+body {
+  font-family: var(--font-main);
+  background: var(--bg-main);
+  background-image: var(--bg-gradient);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: var(--transition-smooth);
+}
+
+/* 4. Headings & Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 5. Utility Classes */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.highlight-you {
+  color: var(--color-pink);
+  font-weight: 700;
+}
+
+/* Center alignment for About page wrapper */
+.about-container {
+  min-height: calc(100vh - 160px); /* Centers content between navbar and footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+/* Subtitle Tag styling */
+.subtitle-tag {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #a78bfa;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.about-hero {
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+}
+
+.about-hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.intro-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+/* 3 Cards Grid */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.about-card {
+  background-color: var(--card-bg, #1a162b);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: #7b2ff7;
+}
+
+/* 3-Column Centered Cards Layout */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.about-card {
+  background-color: var(--card-bg, #1a162b);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: #7b2ff7;
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+/* Container Grid for 3 Side-by-Side Cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1.5rem;                           /* Space between cards */
+  margin-top: 1.5rem;
+}
+
+/* Individual Feature Card Alignment */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+/* Optional icon sizing & spacing */
+.feature-card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Responsive adjustment for screens smaller than 768px */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+  }
+}
+
+/* Container adjustment for video card */
+.video-card {
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Local HTML5 Video Styling */
+.video-card video {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive 16:9 Aspect Ratio Container (For iFrame / YouTube) */
+.video-responsive {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Page Outer Wrapper */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+/* Large Central Glass Box (Matches About Page) */
+.content-box {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Header Text Styles */
+.works-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.works-header .tagline {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.works-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.works-header p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 2-Column Grid for DoNote & UniLink */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .works-grid {
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+  }
+}
+
+/* Individual Work Cards */
+.work-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(123, 47, 247, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tech-tags {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #a78bfa;
+  margin-bottom: 0.5rem;
+}
+
+.work-card h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.work-card p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.btn-resume {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #7b2ff7; /* Theme purple matching your nav accent */
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+}
+
+.btn-resume:hover {
+  background-color: #621ed6;
+  transform: translateY(-2px);
+}
+
+/* CSS Styling */
+.resume-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px; /* Adjust to match your Facebook card width */
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.4); /* Glassmorphism background */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Contact Section & Container */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+.contact-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  /* Matching your headling style */
+  background: linear-gradient(135deg, #ffffff 40%, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-card p {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Form Fields */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(15, 10, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #71717a;
+}
+
+/* Focused input glowing effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+  background: rgba(20, 15, 40, 0.8);
+}
+
+/* Submit Button styled like your navigation button */
+.btn-submit {
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Light Mode Contact Card */
+.light-mode .contact-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.12);
+  color: #1e1b4b;
+}
+
+/* Clear, vibrant gradient heading */
+.light-mode .contact-card h2 {
+  background: linear-gradient(135deg, #7e22ce 0%, #db2777 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle & Labels */
+.light-mode .contact-card p {
+  color: #4b5563;
+}
+
+.light-mode .form-group label {
+  color: #374151;
+}
+
+/* Light Input Fields */
+.light-mode .form-group input,
+.light-mode .form-group textarea {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+.light-mode .form-group input::placeholder,
+.light-mode .form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus State for Light Mode */
+.light-mode .form-group input:focus,
+.light-mode .form-group textarea:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.25);
+  background: #ffffff;
+}
+
+/* Submit Button in Light Mode */
+.light-mode .btn-submit {
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+}
+
+.light-mode .btn-submit:hover {
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.45);
+}
+
+/* --- Mobile Navigation Fixes --- */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        align-items: center;
+        padding: 0;
+        margin: 5px 0 0 0;
+    }
+
+    .main-nav a, 
+    .main-nav .btn-nav {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+}
